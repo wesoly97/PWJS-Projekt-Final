@@ -1,0 +1,101 @@
+.nav-item
+{
+border-style: none;
+margin: 0% 40% 0%;
+
+}
+.paragraf
+{
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 0% 13% 0%;
+color: white;
+min-height: 100vh;
+}
+.bg 
+{
+   background-image: url("https://raw.githubusercontent.com/wesoly97/Pwjs-Projekt/master/img/tlo.jpg");
+	background-position: top center;
+	background-repeat: no-repeat;
+   min-height: 100vh;
+   background-size: cover;
+   padding-top:0vh;
+ }
+.tytul
+{
+text-align: center;
+margin: 80% 0% 0% 5%;
+color:black;
+font-weight: bold;
+background: rgb(177, 179, 179);
+border-radius: 20%;
+}
+
+.mnie
+{
+   padding: 20% 0; 
+   font-size: 3vh;
+}
+.skilsy
+{
+color:black;
+font-weight: bold;
+background: rgb(177, 179, 179);
+border-radius: 5%;
+padding-left: 5%;
+text-align: center;
+
+}
+.skilsy>h1
+{
+text-align: center;
+}
+#kontener1
+{
+background-color:rgb(18, 19, 19);
+}
+.kontener2
+{
+   background-image: url(/img/2.jpg);
+   min-height: 100vh;
+   background-size: cover;
+   padding-top:0vh;
+   background-attachment: fixed;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+.kontener3
+{
+   background-image: url(/img/gra.jpg);
+   min-height: 100vh;
+   background-size: cover;
+   padding-top:0vh;
+   background-attachment: fixed;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+.stopka
+{
+   background-color:rgb(14, 15, 15);
+}
+#gra
+{
+   background-color:black;
+   margin-right: 5vh;
+   margin-bottom: 5vh;
+   align-items: center;
+   text-align: center;
+}
+.gra
+{
+   color:black;
+   font-weight: bold;
+   background: rgb(177, 179, 179);
+   border-radius: 5%;
+   padding-left: 5vh;
+   padding-right: 1vh;
+   text-align: center;
+}

@@ -1,0 +1,206 @@
+<html ng-app="portfolioApp" ng-controller="GalleryListCtrl">
+<html>
+<head>
+  <title ng:bind-template="{{query}}">Mikołaj Wesołek</title>
+<meta charset="utf-8">
+<link href="css/style.css" rel="stylesheet" >
+<link href="css/bootstrap.min.css" rel="stylesheet" >
+<script src="js/jquery.min.js"></script>
+<script  src="js/bootstrap.min.js" > </script>
+<script type="text/javascript" src="js/form.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/Controllers.js"></script>
+</head>
+<body>
+  
+<div id=”container-fluid”>
+      <nav class="navbar fixed-top navbar-expand-lg  navbar-dark bg-dark ">
+        <a class="navbar-brand" href="https://repaired-competitio.000webhostapp.com/"><svg class="bi bi-house-door" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M7.646 1.146a.5.5 0 01.708 0l6 6a.5.5 0 01.146.354v7a.5.5 0 01-.5.5H9.5a.5.5 0 01-.5-.5v-4H7v4a.5.5 0 01-.5.5H2a.5.5 0 01-.5-.5v-7a.5.5 0 01.146-.354l6-6zM2.5 7.707V14H6v-4a.5.5 0 01.5-.5h3a.5.5 0 01.5.5v4h3.5V7.707L8 2.207l-5.5 5.5z" clip-rule="evenodd"/>
+  <path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 01.5-.5h1a.5.5 0 01.5.5z" clip-rule="evenodd"/>
+</svg></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ">
+            <li class="nav-item active">
+              <a class="nav-link " href="#glowna">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#ja">About</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#tech">Technologie</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link " href="#kontakt">Kontakt</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link " href="#gierka">Projekt</a>
+            </li>
+          </ul>
+        </div>
+      
+      </nav>
+</div>
+<div class="bg">
+  
+    <div class="row col-sm-6" id="glowna">
+        <div class="col-sm-6 header tytul" >
+          <h1 >Mikołaj Wesołek</h1>
+          <h2>Future Web developer</h2>
+        </div>
+
+    </div>
+    </div>
+    <div id="kontener1" >
+<div class="paragraf"id="ja" >
+
+    <div class="row-md-12 ">
+      <div class="col-12-lg">
+        
+       <section class="mnie" id="paralax" > 
+        <h1>O Mnie</h1>
+        <p>Nazywam się Mikołaj Wesołek, studiuje na Państwowej Wyższej Szkole Zawodowej w Elblągu.</p>
+        <p>Aktualnie jestem na drugim roku studiów stacjonarnych. W wolnych chwilach oglądam Premier Legue, w której występuje Chelsea - klub, któremu kibicuje!</p>
+        <p>Keep Blue flag flying high!</p>
+        <p>W dalszej części strony dowiesz się jakie technologie opanowałem. Dodatkowo na dole znajduje się formularz, dzięki któremu możemy się skontaktować!<p></p>
+
+
+
+        </section>
+      
+      </div>
+     
+     
+    </div>
+</div>
+</div>
+<div class="kontener2" >
+<div class="paragraf" id="tech"  >
+
+  <div class="row " id="paralax" >
+    <section class="skilsy">
+     
+      <h1>Używane Technologie: </h1>
+      <p>Ilosc wyświetlonych technologii:{{(galleries|filter:query).length}}</p>
+      <div class="row">
+      <div class="col-lg-6">
+      <label for="query">Szukaj: </label>
+      <input ng-model="query">
+      <p ng-if="query">Wyniki wyszukiwania dla: {{query}}</p>
+      </div>
+        <div class="col-lg-6">
+        <label>Sortuj:</label>
+        <select ng-init="orderProp = sortList[1]" ng-model='orderProp' ng-options="sort as sort.label for sort in sortList">
+        <option value="title">Alfabetycznie</option>
+        <option value="when" >Chronologicznie</option>
+        <option value="-when" >Od najnowszej</option>
+        </select>
+        <p ng-if="orderProp">Galerie ułożone: {{orderProp.label}}</p>
+      </div>
+        </div>
+      <div class="row">
+      
+        <div class="col-lg-4" ng-repeat="gallery in galleries | filter:query  | orderBy: orderProp.value ">
+       <img src="{{gallery.thumbnailUrl}}">
+      
+       <p><strong>Kiedy Rozpoczeto nauke:</strong> {{gallery.when}}</p>
+       </div>
+      </div>
+
+      </section>
+   </div>
+  
+   
+  </div>
+  </div>
+</div>
+<div id="kontener1" >
+  <div class="paragraf" id="kontakt" >
+  
+    <div class=”container-fluid”>
+      <br><br>
+
+    <div class="row">
+    <div class="col-md-12 ">
+      <section class="mnie" id="paralax" > 
+        <h1>Formularz kontaktowy</h1>
+    <form onsubmit="return checkForm()" >
+    <fieldset>
+      <div class="form-group">
+    
+        <p id="errorImie"></p>
+          <label for="contactImie">Imie</label>
+          <input type="text"  id="contactImie" aria-describedby="imieHelp" placeholder="Podaj imie" class="form-control" onblur="sprawdz_imie() ">
+          <small id="emailHelp" class="form-text text-muted">np.:Maciej</small>
+    
+      </div>
+        <div class="form-group">
+          <p id="errorNazwisko"></p>
+            <label for="contactNazwisko">Nazwisko</label>
+            <input type="text"  id="contactNazwisko" aria-describedby="imieHelp" placeholder="Podaj Nazwisko" class="form-control" onblur="sprawdz_nazwisko() ">
+            <small id="emailHelp" class="form-text text-muted">np.:Kowalski</small>
+          </div>
+          <div class="form-group">
+            <p id="errorInfo"></p>
+              <label for="contactInfo">Informacja</label>
+              <input type="text"  id="contactInfo" aria-describedby="InfoHelp" placeholder="Podaj Informacje" class="form-control" onblur="sprawdz_info() ">
+              <small id="emailHelp" class="form-text text-muted">ograniczone do 250 znakow</small>
+            </div>
+      <div class="form-group">
+        <p id="errorEmail"></p>
+          <label for="contactEmail">Email:</label>
+          <input type="text"  id="contactEmail" aria-describedby="emailHelp" placeholder="Podaj adres email" class="form-control"onblur="sprawdz_email()" >
+          <small id="emailHelp" class="form-text text-muted">przyklad@wp.pl</small>
+        </div>
+        <button type="submit" class="btn btn-primary">Wyslij</button>
+    </fieldset>
+    </form>
+    </div>
+  </section>
+    </div>
+    </div>
+  </div>
+  </div>
+  <div class="kontener3" >
+    <div class="paragraf" id="gierka"  >
+    
+      <div class="row"  >
+     <section class="gra"  > 
+          
+     
+          <h1>SNAKE (JS PROJEKT)</h1>
+         <div id="wynik">Liczba Punktów: 0</div>
+          
+          <div class="row">
+
+            <div class="col-lg-12 text-center">
+              
+              <canvas id = "gra" > </canvas>
+              
+            
+            </div>
+
+          </div>
+
+       
+          </section>
+       </div>
+      
+       
+      </div>
+      </div>
+      <footer class="page-footer font-small pt-4  stopka">
+
+        <div class="footer-copyright text-center py-3">© 2020 Copyright:
+          <a href="https://repaired-competitio.000webhostapp.com/"> Mikołaj Wesołek</a>
+        </div>
+     
+      
+      </footer>
+      <script type="text/javascript" src="js/gra.js"></script>
+</body>
+</html>
